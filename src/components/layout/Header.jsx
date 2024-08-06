@@ -31,7 +31,7 @@ const Header = () => {
       </div>
 
       {/* navigations and main logo and search bar */}
-      <div className="flex justify-between items-center mx-10 mt-4">
+      <div className="flex justify-between items-center mx-10 my-8">
         {/* Home,collections etc */}
         <div className="flex justify-between items-center gap-4">
           <h1 className="font-mainTextStyle font-bold text-[14px] text-[#000000]">
