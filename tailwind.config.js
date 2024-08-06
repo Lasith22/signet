@@ -6,6 +6,7 @@ export default {
       fontFamily: {
         manrope: ['Manrope', 'sans-serif'],
         mainTextStyle: ['"Plus Jakarta Sans"', 'sans-serif'],
+        secondMainTextStyle: ['"DM Sans"', 'sans-serif'],
       },
     },
   },
