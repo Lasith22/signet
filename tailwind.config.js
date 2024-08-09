@@ -7,6 +7,8 @@ export default {
         manrope: ['Manrope', 'sans-serif'],
         mainTextStyle: ['"Plus Jakarta Sans"', 'sans-serif'],
         secondMainTextStyle: ['"DM Sans"', 'sans-serif'],
+        robotoSlab: ['"Roboto Slab"', 'serif'],
+        poppins: ['Poppins', 'sans-serif'],
       },
     },
   },

@@ -15,7 +15,7 @@ const CustomerStories = () => {
       </h1>
 
       <div className="my-10 mx-20 grid grid-cols-3 justify-between gap-10 ">
-        <Card className="p-4">
+        <Card className="p-4 shadow-md">
           <div className="flex gap-5">
             <img src={Customer1} alt="" />
             <div className="border-b border-dashed border-b-[#F3BB2E]">
@@ -35,7 +35,7 @@ const CustomerStories = () => {
             </h1>
           </div>
         </Card>
-        <Card className="p-4">
+        <Card className="p-4 shadow-md">
           <div className="flex gap-5">
             <img src={Customer2} alt="" />
             <div className="border-b border-dashed border-b-[#F3BB2E]">
@@ -55,7 +55,7 @@ const CustomerStories = () => {
             </h1>
           </div>
         </Card>
-        <Card className="p-4">
+        <Card className="p-4 shadow-md">
           <div className="flex gap-5">
             <img src={Customer3} alt="" />
             <div className="border-b border-dashed border-b-[#F3BB2E]">
