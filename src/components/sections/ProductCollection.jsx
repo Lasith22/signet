@@ -9,7 +9,7 @@ import Product7 from '../../assets/Product7.png';
 
 const ProductCollection = () => {
   return (
-    <div className="py-20 px-8">
+    <div className="py-20 px-8 bg-gradient-to-t from-[#B7B7B7] to-transparent">
       <div className="flex flex-col justify-center items-center">
         <h1 className="font-mainTextStyle text-[#000000] text-[48px] font-bold">
           Our Picks for you
