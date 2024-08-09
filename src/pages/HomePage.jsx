@@ -3,6 +3,7 @@ import Header from '../components/layout/Header';
 import HeroSection from '../components/layout/HeroSection';
 import ProductCollection from '../components/sections/ProductCollection';
 import CustomerStories from '../components/layout/CustomerStories';
+import Footer from '../components/layout/Footer';
 
 const HomePage = () => {
   return (
@@ -11,6 +12,7 @@ const HomePage = () => {
       <HeroSection />
       <ProductCollection />
       <CustomerStories />
+      <Footer />
     </>
   );
 };
