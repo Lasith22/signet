@@ -13,8 +13,8 @@ const HomePage = () => {
       <HeroSection />
       <ProductCollection />
       <CustomerStories />
-      <Footer />
       <PromoSection />
+      <Footer />
     </>
   );
 };
