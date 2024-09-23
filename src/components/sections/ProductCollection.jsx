@@ -54,7 +54,7 @@ const ProductCollection = () => {
             <h1 className="text-[#2EBB77] font-mainTextStyle font-bold text-[16px]">
               $29.00{' '}
               <span className="text-[#9B9B9B] text-[13px] line-through font-medium">
-                $39.00
+                $399.00
               </span>
             </h1>
           </div>
