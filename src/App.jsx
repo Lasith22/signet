@@ -1,11 +1,11 @@
-import { useState } from 'react';
-import HomePage from './pages/HomePage';
+
+import {router} from "../routes/routes.jsx";
+import {RouterProvider} from "react-router-dom";
+
 
 function App() {
   return (
-    <>
-      <HomePage />
-    </>
+   <RouterProvider router={router} />
   );
 }
 
