@@ -9,6 +9,8 @@ import IconSearch from '../../assets/IconSearch.svg';
 import MainLogo from '../../assets/MainLogo.svg';
 import LoginPage from "../../pages/LoginPage.jsx";
 import SignInPage from "../../pages/SignInPage.jsx";
+import Alerts from "../common/alert/alerts.jsx";
+
 const Header = () => {
 
   const [isOpenLoginForm,setIsOpenLoginForm] = useState(false);
