@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card } from 'antd';
-import Customer1 from '../../assets/image.png';
+import Customer1 from '../../assets/Customer1.svg';
 import Customer2 from '../../assets/Customer2.svg';
 import Customer3 from '../../assets/Customer3.svg';
 

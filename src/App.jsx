@@ -1,11 +1,14 @@
-import { useState } from 'react';
-import HomePage from './pages/HomePage';
+
+import {router} from "../routes/routes.jsx";
+import {RouterProvider} from "react-router-dom";
+import AuthContextProvider, {AuthContext} from "./store/authContext";
+
 
 function App() {
   return (
-    <>
-      <HomePage />
-    </>
+      <AuthContextProvider>
+        <RouterProvider router={router} />
+      </AuthContextProvider>
   );
 }
 

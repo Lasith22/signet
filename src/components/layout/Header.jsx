@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import TwitterIcon from '../../assets/TwitterIcon.svg';
 import InstaIcon from '../../assets/InstaIcon.svg';
 import FbIcon from '../../assets/FBIcon.svg';
@@ -7,7 +7,22 @@ import StarIcon from '../../assets/StartIcon.svg';
 import CartIcon from '../../assets/CartIcon.svg';
 import IconSearch from '../../assets/IconSearch.svg';
 import MainLogo from '../../assets/MainLogo.svg';
+import LoginPage from "../../pages/LoginPage.jsx";
+import SignInPage from "../../pages/SignInPage.jsx";
+import Alerts from "../common/alert/alerts.jsx";
+
 const Header = () => {
+
+  const [isOpenLoginForm,setIsOpenLoginForm] = useState(false);
+  const [isOpenSigninForm,setIsOpenSigninForm] = useState(false);
+
+  const openLoginForm = () => {
+    setIsOpenLoginForm(true);
+  }
+  const openSigninForm = () => {
+   setIsOpenSigninForm(true);
+  }
+
   return (
     <div>
       {/* logos and login and signup buttons */}
@@ -21,12 +36,15 @@ const Header = () => {
 
         {/* butons */}
         <div className="flex justify-between items-center gap-8">
-          <button className="text-[#000000] font-bold text-[15px] font-mainTextStyle">
-            Login
+          <button className="text-[#000000] font-bold text-[15px] font-mainTextStyle" onClick={openLoginForm}>
+           Login
           </button>
-          <button className="text-[#FFFFFF] font-bold text-[15px] font-mainTextStyle h-[32px] flex items-center justify-center w-[95px] rounded-[7px] bg-[#000000] ">
+          {isOpenLoginForm && <LoginPage isOpenLoginForm={isOpenLoginForm} setIsOpenLoginForm={setIsOpenLoginForm} />}
+          <button className="text-[#FFFFFF] font-bold text-[15px] font-mainTextStyle h-[32px] flex items-center justify-center w-[95px] rounded-[7px] bg-[#000000]"
+          onClick={openSigninForm}>
             Sign Up
           </button>
+          {isOpenSigninForm && <SignInPage  isOpenSigninForm={isOpenSigninForm} setIsOpenSignForm={setIsOpenSigninForm} />}
         </div>
       </div>
 
@@ -55,7 +73,7 @@ const Header = () => {
           {/* search bar */}
           <div className="flex justify-start items-center w-[260px] h-[52px] p-4 rounded-[12px] gap-3 border-[#EEEEEE] border-2">
             <img src={IconSearch} alt="My icon" />
-            <h1 class="font-medium text-[15px] leading-[16px] text-[#9B9B9B] font-mainTextStyle">
+            <h1 className="font-medium text-[15px] leading-[16px] text-[#9B9B9B] font-mainTextStyle">
               Search...
             </h1>
           </div>
