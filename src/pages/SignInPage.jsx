@@ -1,40 +1,36 @@
-import React, {useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import Model from "../components/common/model/model.jsx";
 import {createUserWithEmailAndPassword} from "firebase/auth";
 import {auth} from "../firebase.js";
 import {Alert, Button, Checkbox, Divider, Flex, Form, Input, Spin} from "antd";
 import {FacebookFilled, GoogleOutlined, LoadingOutlined, LockOutlined, UserOutlined} from "@ant-design/icons";
+import AuthContextProvider, {AuthContext} from "../store/authContext.jsx";
 
 const SignInPage = ({ isOpenSigninForm, setIsOpenSignForm }) => {
     // const [showLoginForm,setShowLoginForm] = useState(true);
     const [isLoading,setIsLoading] = useState(false);
-    let errorCode;
-    let errorMessage;
-    let user;
-    let alert;
+    const {signUp,status, message} = useContext(AuthContext)
+
     const onSignUp = (values) => {
         setIsLoading(true);
-        createUserWithEmailAndPassword (auth,values.email,values.password).then((userCredentials)=>{
-             user = userCredentials.user;
-             setIsLoading(false);
-            console.log(user)
-            setIsOpenSignForm(false);
-        }).catch((error)=>{
-            setIsLoading(false);
-             errorCode = error.code;
-             errorMessage = error.message;
-            console.log(errorMessage, errorCode);
-        })
+        signUp(auth,values.email,values.password,setIsOpenSignForm);
     };
+
+    useEffect(()=>{
+        if(status != 0){
+            setIsLoading(false);
+        }
+    },[status])
 
     return (
         <>
-            {alert}
             <Model isModalOpen = {isOpenSigninForm} setIsModalOpen={setIsOpenSignForm} title="Create your Signet Account">
+                <div className="mt-7">
+                {status !== 200 && <p className="text-[#dc2626] px-3 ">{message}</p>}
                 <Form
                     name="Sign Up"
                     initialValues={{ remember: true }}
-                    style={{ maxWidth: '100%',alignItems:'center', padding:'10px', marginTop:'20px'}}
+                    style={{ maxWidth: '100%',alignItems:'center', padding:'10px'}}
                     onFinish={onSignUp}
                 >
                     <Form.Item
@@ -77,6 +73,7 @@ const SignInPage = ({ isOpenSigninForm, setIsOpenSignForm }) => {
                 {isLoading && <div style={{display:'flex', alignContent:'center', justifyContent:'center'}}>
                     <Spin indicator={<LoadingOutlined style={{color:'#737171'}} spin />} />
                 </div> }
+                    </div>
             </Model>
         </>
     )

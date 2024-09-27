@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import Model from "../components/common/model/model.jsx";
 import {Button, Checkbox, Divider, Flex, Form, Input, Spin} from "antd";
 import {UserOutlined, LockOutlined, GoogleOutlined, FacebookFilled, LoadingOutlined} from "@ant-design/icons";
@@ -6,30 +6,29 @@ import FbIcon from '../assets/FBIcon.svg';
 import {auth} from "../firebase.js";
 
 import {signInWithEmailAndPassword} from "firebase/auth"
+import {AuthContext} from "../store/authContext.jsx";
 
 const LoginPage = ({isOpenLoginForm, setIsOpenLoginForm }) => {
     // const [showLoginForm,setShowLoginForm] = useState(true);
-    const [error,setError] = useState(null);
     const [isLoading,setIsLoading] = useState(false);
+    const {status,message,login} = useContext(AuthContext);
 
     const onLogin = (values) => {
         setIsLoading(true);
-        signInWithEmailAndPassword(auth,values.email,values.password).then((user)=>{
-            console.log(user)
-            setIsLoading(false);
-            setIsOpenLoginForm(false);
-        }).catch((error)=>{
-            setIsLoading(false);
-            setError("Invalid email or password");
-        })
-
+        login(auth,values.email,values.password,setIsOpenLoginForm);
     };
+
+    useEffect(()=>{
+        if(status !=0){
+            setIsLoading(false);
+        }
+    })
 
     return (
         <>
           <Model isModalOpen = {isOpenLoginForm} setIsModalOpen={setIsOpenLoginForm} title="Welcome to Signet! Please login.">
            <div className="mt-7">
-               {error && <p className="text-[#dc2626] px-3 ">{error}</p>}
+               {status !== 200 && <p className="text-[#dc2626] px-3 ">{message}</p>}
                <Form
                    name="login"
                    initialValues={{ remember: true }}
