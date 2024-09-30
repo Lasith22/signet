@@ -10,6 +10,7 @@ import MainLogo from '../../assets/MainLogo.svg';
 import LoginPage from "../../pages/LoginPage.jsx";
 import SignInPage from "../../pages/SignInPage.jsx";
 import Alerts from "../common/alert/alerts.jsx";
+import {Link} from "react-router-dom";
 
 const Header = () => {
 
@@ -59,7 +60,7 @@ const Header = () => {
             COLLECTION
           </h1>
           <h1 className="font-mainTextStyle font-bold text-[14px] text-[#000000]">
-            ABOUT
+            <Link to="aboutUs">ABOUT</Link>
           </h1>
           <h1 className="font-mainTextStyle font-bold text-[14px] text-[#000000]">
             CONTACT
